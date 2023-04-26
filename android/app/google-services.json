@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "768520685499",
+    "project_id": "fitness-app-assignment",
+    "storage_bucket": "fitness-app-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768520685499:android:a3a76a747bab1bbac0269e",
+        "android_client_info": {
+          "package_name": "com.nurettinselim.fitness_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768520685499-46ra5a2tua865fqth8c7u95s3d88kpcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEaMPUI7ZfbGiws2_vOdPgvOqqZXCea2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768520685499-46ra5a2tua865fqth8c7u95s3d88kpcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
