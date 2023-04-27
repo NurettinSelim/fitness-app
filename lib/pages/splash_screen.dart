@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/utils/theme_helper.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,15 +21,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: const Center(
-          child: Text(
-            "FitTrack",
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 64,
-            ),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "FitTrack",
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 64,
           ),
         ),
       ),
