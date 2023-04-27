@@ -5,10 +5,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/core/routes/router.dart';
 import 'package:fitness_app/core/utils/text_config.dart';
 import 'package:fitness_app/core/utils/theme_helper.dart';
+import 'package:fitness_app/models/exercise.dart';
 import 'package:fitness_app/pages/splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 
 import 'firebase_options.dart';
@@ -48,6 +50,9 @@ void main() async {
       log.severe(e);
     }
   }
+  await Hive.initFlutter();
+  Hive.registerAdapter(ExerciseAdapter());
+  await Hive.openBox<List<Exercise>>('exerciseBox');
 
   runApp(
     const ProviderScope(
@@ -64,6 +69,7 @@ class MyApp extends ConsumerWidget {
     final router = ref.watch(routerProvider);
 
     return MaterialApp(
+      theme: ThemeHelper.themeData,
       home: SplashScreen(
         nextScreen: MaterialApp.router(
           debugShowCheckedModeBanner: false,
