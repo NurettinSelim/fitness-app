@@ -1,3 +1,4 @@
+import 'package:fitness_app/pages/exercises_page.dart';
 import 'package:fitness_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,6 +12,7 @@ enum Routes {
   login,
   register,
   home,
+  exercises,
 }
 
 final _key = GlobalKey<NavigatorState>();
@@ -19,13 +21,23 @@ final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _key,
     debugLogDiagnostics: true,
-    initialLocation: "/",
+    initialLocation: "/exercises",
     routes: [
       GoRoute(
         path: "/",
         name: Routes.home.name,
+        redirect: (context, state) => "/exercises",
         builder: (context, state) {
           return HomePage();
+        },
+      ),
+      GoRoute(
+        path: "/exercises",
+        name: Routes.exercises.name,
+        builder: (context, state) {
+          var weekday = int.tryParse(state.queryParams['weekday'] ?? "") ??
+              DateTime.now().weekday;
+          return ExercisesPage(weekdayNum: weekday);
         },
       ),
       GoRoute(
