@@ -20,15 +20,6 @@ class ExercisesPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) => AddExercisePopup(weekdayNum: weekdayNum),
-              );
-            },
-            icon: const Icon(Icons.add),
-          ),
-          IconButton(
-            onPressed: () async {
               showDialog(
                   context: context,
                   builder: (context) => const WeekdaySelectPopup());
@@ -42,6 +33,16 @@ class ExercisesPage extends StatelessWidget {
             icon: const Icon(Icons.logout),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AddExercisePopup(weekdayNum: weekdayNum),
+          );
+        },
+        label: const Text("Add Training"),
+        icon: const Icon(Icons.add),
       ),
       body: ValueListenableBuilder(
           valueListenable:
