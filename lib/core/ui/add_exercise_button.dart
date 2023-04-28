@@ -3,6 +3,7 @@ import 'package:fitness_app/core/providers/weekday_selector_provider.dart';
 import 'package:fitness_app/core/services/exercises_manager.dart';
 import 'package:fitness_app/core/utils/week_helper.dart';
 import 'package:fitness_app/models/exercise.dart';
+import 'package:fitness_app/models/exercise_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
