@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/core/routes/router.dart';
+import 'package:fitness_app/core/services/exercises_manager.dart';
 import 'package:fitness_app/core/utils/text_config.dart';
 import 'package:fitness_app/core/utils/theme_helper.dart';
 import 'package:fitness_app/models/exercise.dart';
@@ -51,9 +52,10 @@ void main() async {
     }
   }
   await Hive.initFlutter();
-  Hive.registerAdapter(ExerciseAdapter());
-  await Hive.openBox<List<Exercise>>('exerciseBox');
-
+  Hive
+    ..registerAdapter(ExerciseAdapter())
+    ..registerAdapter(ExerciseTypeAdapter());
+  ExercisesManager.openExercisesBoxes();
   runApp(
     const ProviderScope(
       child: MyApp(),

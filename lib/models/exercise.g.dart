@@ -20,22 +20,19 @@ class ExerciseAdapter extends TypeAdapter<Exercise> {
       fields[0] as ExerciseType,
       fields[1] as String,
       fields[2] as int,
-      fields[3] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Exercise obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.type)
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
-      ..write(obj.time)
-      ..writeByte(3)
-      ..write(obj.weekNumber);
+      ..write(obj.time);
   }
 
   @override

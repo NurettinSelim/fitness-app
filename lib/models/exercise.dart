@@ -25,8 +25,6 @@ class Exercise {
   String name;
   @HiveField(2)
   int time;
-  @HiveField(3)
-  int weekNumber;
 
-  Exercise(this.type, this.name, this.time, this.weekNumber);
+  Exercise(this.type, this.name, this.time);
 }
