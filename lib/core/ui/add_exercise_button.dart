@@ -12,17 +12,21 @@ class AddExerciseButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const ExerciseType exerciseType = ExerciseType.cooldown;
+    final ExerciseType? exerciseType = ref.watch(exerciseTypeProvider);
     final String exerciseName = ref.watch(exerciseNameProvider).text;
     final int exerciseTime =
         int.tryParse(ref.watch(exerciseTimeProvider).text) ?? 0;
     String selectedWeekdayName = ref.watch(weekdaySelectorProvider).first;
     return ElevatedButton(
       onPressed: () {
-        ExercisesManager().addExercisesToDay(
-          Exercise(exerciseType, exerciseName, exerciseTime),
-          WeekHelper.weekdayNameToNum(selectedWeekdayName),
-        );
+        if (exerciseType != null) {
+          ExercisesManager().addExercisesToDay(
+            Exercise(exerciseType, exerciseName, exerciseTime),
+            WeekHelper.weekdayNameToNum(selectedWeekdayName),
+          );
+        } else {
+          debugPrint("Exercise type not selected");
+        }
       },
       child: Text(
           "Add to ${ref.watch(weekdaySelectorProvider).first.capitalize()}"),

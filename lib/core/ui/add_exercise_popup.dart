@@ -1,6 +1,6 @@
 import 'package:fitness_app/core/ui/add_exercise_button.dart';
+import 'package:fitness_app/core/ui/exercise_type_slider.dart';
 import 'package:fitness_app/core/ui/weekday_selector.dart';
-import 'package:fitness_app/models/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fitness_app/core/utils/theme_helper.dart';
@@ -20,6 +20,8 @@ class AddExercisePopup extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const ExerciseTypeSlider(),
+          const SizedBox(height: 10),
           TextField(
             controller: nameController,
             decoration: ThemeHelper.formFieldDecoration.copyWith(
