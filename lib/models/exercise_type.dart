@@ -8,7 +8,7 @@ enum ExerciseType {
   @HiveField(1)
   run,
   @HiveField(2)
-  cycle,
+  bicycle,
   @HiveField(3)
   swim,
   @HiveField(4)

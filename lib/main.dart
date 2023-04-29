@@ -7,6 +7,7 @@ import 'package:fitness_app/core/services/exercises_manager.dart';
 import 'package:fitness_app/core/utils/text_config.dart';
 import 'package:fitness_app/core/utils/theme_helper.dart';
 import 'package:fitness_app/models/exercise.dart';
+import 'package:fitness_app/models/exercise_type.dart';
 import 'package:fitness_app/pages/splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -18,7 +18,7 @@ class ExerciseTypeAdapter extends TypeAdapter<ExerciseType> {
       case 1:
         return ExerciseType.run;
       case 2:
-        return ExerciseType.cycle;
+        return ExerciseType.bicycle;
       case 3:
         return ExerciseType.swim;
       case 4:
@@ -39,7 +39,7 @@ class ExerciseTypeAdapter extends TypeAdapter<ExerciseType> {
       case ExerciseType.run:
         writer.writeByte(1);
         break;
-      case ExerciseType.cycle:
+      case ExerciseType.bicycle:
         writer.writeByte(2);
         break;
       case ExerciseType.swim:

@@ -75,6 +75,12 @@ flutter:
     - assets/icons/apple.svg
     - assets/icons/google.svg
     - assets/icons/facebook.svg
+    - assets/fitness_icons/yoga.png
+    - assets/fitness_icons/run.png
+    - assets/fitness_icons/bicycle.png
+    - assets/fitness_icons/swim.png
+    - assets/fitness_icons/pilates.png
+    - assets/fitness_icons/cooldown.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

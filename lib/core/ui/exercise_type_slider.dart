@@ -77,13 +77,23 @@ class SliderItem extends ConsumerWidget {
                 ref.watch(exerciseTypeProvider.notifier).state = exerciseType;
               },
               child: Center(
-                child: Text(
-                  exerciseType.name.capitalize(),
-                  style: TextStyle(
-                    color: isSelected
-                        ? Theme.of(context).colorScheme.onPrimaryContainer
-                        : Theme.of(context).colorScheme.onPrimary,
-                  ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      "assets/fitness_icons/${exerciseType.name}.png",
+                      height: _diameter / 2,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      exerciseType.name.capitalize(),
+                      style: TextStyle(
+                        color: isSelected
+                            ? Theme.of(context).colorScheme.onPrimaryContainer
+                            : Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
