@@ -52,7 +52,13 @@ class ExercisesPage extends StatelessWidget {
             return ListView.separated(
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(exercises[index].name),
+                  leading: Image.asset(
+                    "assets/fitness_icons/${exercises[index].type.name}.png",
+                    color: Theme.of(context).colorScheme.onBackground,
+                    height: 40,
+                  ),
+                  title: Text(
+                      "${exercises[index].name} - ${exercises[index].time} min"),
                   onTap: () {
                     //TODO go to edit modal
                   },
