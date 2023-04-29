@@ -75,6 +75,8 @@ class SliderItem extends ConsumerWidget {
               borderRadius: BorderRadius.circular(_diameter / 2),
               onTap: () {
                 ref.watch(exerciseTypeProvider.notifier).state = exerciseType;
+                ref.watch(exerciseNameProvider.notifier).state.text =
+                    exerciseType.name.capitalize();
               },
               child: Center(
                 child: Column(
@@ -83,15 +85,6 @@ class SliderItem extends ConsumerWidget {
                     Image.asset(
                       "assets/fitness_icons/${exerciseType.name}.png",
                       height: _diameter / 2,
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      exerciseType.name.capitalize(),
-                      style: TextStyle(
-                        color: isSelected
-                            ? Theme.of(context).colorScheme.onPrimaryContainer
-                            : Theme.of(context).colorScheme.onPrimary,
-                      ),
                     ),
                   ],
                 ),
