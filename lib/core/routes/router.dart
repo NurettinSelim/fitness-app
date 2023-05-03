@@ -1,3 +1,4 @@
+import 'package:fitness_app/pages/exercise_edit_page.dart';
 import 'package:fitness_app/pages/exercises_page.dart';
 import 'package:fitness_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ enum Routes {
   register,
   home,
   exercises,
+  exerciseEdit,
 }
 
 final _key = GlobalKey<NavigatorState>();
@@ -38,6 +40,23 @@ final routerProvider = Provider<GoRouter>((ref) {
           var weekday = int.tryParse(state.queryParams['weekday'] ?? "") ??
               DateTime.now().weekday;
           return ExercisesPage(weekdayNum: weekday);
+        },
+      ),
+      GoRoute(
+        path: "/exerciseEdit",
+        name: Routes.exerciseEdit.name,
+        builder: (context, state) {
+          int? weekday;
+          int? exerciseIndex;
+          try {
+            weekday = int.parse(state.queryParams['weekday']!);
+            exerciseIndex = int.parse(state.queryParams['exerciseIndex']!);
+          } catch (e) {
+            context.goNamed(Routes.home.name);
+          }
+
+          return ExerciseEditPage(
+              weekdayNum: weekday!, exerciseIndex: exerciseIndex!);
         },
       ),
       GoRoute(

@@ -1,9 +1,11 @@
+import 'package:fitness_app/core/routes/router.dart';
 import 'package:fitness_app/core/services/auth_service.dart';
 import 'package:fitness_app/core/services/exercises_manager.dart';
 import 'package:fitness_app/core/ui/add_exercise_popup.dart';
 import 'package:fitness_app/core/ui/weekday_select_popup.dart';
 import 'package:fitness_app/core/utils/week_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ExercisesPage extends StatelessWidget {
   const ExercisesPage({super.key, required this.weekdayNum});
@@ -60,7 +62,10 @@ class ExercisesPage extends StatelessWidget {
                   title: Text(
                       "${exercises[index].name} - ${exercises[index].time} min"),
                   onTap: () {
-                    //TODO go to edit modal
+                    context.pushNamed(Routes.exerciseEdit.name, queryParams: {
+                      "weekday": weekdayNum.toString(),
+                      "exerciseIndex": index.toString(),
+                    });
                   },
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),

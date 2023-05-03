@@ -20,8 +20,16 @@ class ExercisesManager {
     return getExercisesBoxByDay(weekdayNum).values.toList();
   }
 
+  Exercise getExercisesByIndex(int index, int weekdayNum) {
+    return getExercisesBoxByDay(weekdayNum).getAt(index)!;
+  }
+
   void deleteExerciseByIndex(int index, int weekdayNum) {
     getExercisesBoxByDay(weekdayNum).deleteAt(index);
+  }
+
+  void editExercise(int index, int weekdayNum, Exercise exercise) {
+    getExercisesBoxByDay(weekdayNum).putAt(index, exercise);
   }
 
   ValueListenable<Box<Exercise>> getExercisesListenableByDay(int weekdayNum) {
