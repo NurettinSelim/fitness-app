@@ -13,8 +13,6 @@ class AddExercisePopup extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final nameController = ref.watch(exerciseNameProvider);
-    final timeController = ref.watch(exerciseTimeProvider);
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -23,15 +21,19 @@ class AddExercisePopup extends ConsumerWidget {
           const ExerciseTypeSlider(),
           const SizedBox(height: 10),
           TextField(
-            controller: nameController,
+            onChanged: (value) {
+              ref.read(exerciseNameProvider.notifier).state = value;
+            },
             decoration: ThemeHelper.formFieldDecoration.copyWith(
               labelText: "Training Name",
-              hintText: "selected exercise type",
             ),
           ),
           const SizedBox(height: 10),
           TextField(
-            controller: timeController,
+            onChanged: (value) {
+              ref.read(exerciseTimeProvider.notifier).state =
+                  int.tryParse(value) ?? 0;
+            },
             keyboardType: TextInputType.number,
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly

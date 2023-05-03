@@ -13,9 +13,8 @@ class AddExerciseButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ExerciseType? exerciseType = ref.watch(exerciseTypeProvider);
-    final String exerciseName = ref.watch(exerciseNameProvider).text;
-    final int exerciseTime =
-        int.tryParse(ref.watch(exerciseTimeProvider).text) ?? 0;
+    final String exerciseName = ref.watch(exerciseNameProvider);
+    final int exerciseTime = ref.watch(exerciseTimeProvider) ?? 0;
     String selectedWeekdayName = ref.watch(weekdaySelectorProvider).first;
     return ElevatedButton(
       onPressed: () {

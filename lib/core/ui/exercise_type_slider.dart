@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/providers/exercise_add_field_providers.dart';
-import 'package:fitness_app/core/utils/week_helper.dart';
 import 'package:fitness_app/models/exercise_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -75,8 +74,6 @@ class SliderItem extends ConsumerWidget {
               borderRadius: BorderRadius.circular(_diameter / 2),
               onTap: () {
                 ref.watch(exerciseTypeProvider.notifier).state = exerciseType;
-                ref.watch(exerciseNameProvider.notifier).state.text =
-                    exerciseType.name.capitalize();
               },
               child: Center(
                 child: Column(
