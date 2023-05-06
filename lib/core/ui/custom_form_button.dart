@@ -64,8 +64,8 @@ class CustomFormButton extends ConsumerWidget {
             const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           ),
         ),
-        child: const Text(
-          "Sign In",
+        child: Text(
+          formButtonType == FormButtonType.login ? "Sign In" : "Register",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 18),
         ),
