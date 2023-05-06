@@ -39,6 +39,7 @@ class ExercisesPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
             builder: (context) => AddExercisePopup(weekdayNum: weekdayNum),
           );

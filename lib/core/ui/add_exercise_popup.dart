@@ -14,8 +14,9 @@ class AddExercisePopup extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: MediaQuery.of(context).viewInsets.add(const EdgeInsets.all(12)),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const ExerciseTypeSlider(),
