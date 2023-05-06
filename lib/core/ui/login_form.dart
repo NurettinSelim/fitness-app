@@ -44,7 +44,10 @@ class LoginForm extends ConsumerWidget {
             ),
             const SizedBox(height: 20),
             const Spacer(),
-            const CustomFormButton(formButtonType: FormButtonType.login),
+            CustomFormButton(
+              formKey: _formKey,
+              formButtonType: FormButtonType.login,
+            ),
           ],
         ),
       ),

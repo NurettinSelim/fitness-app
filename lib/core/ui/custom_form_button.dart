@@ -7,8 +7,13 @@ import 'package:fitness_app/core/services/auth_service.dart';
 enum FormButtonType { login, register }
 
 class CustomFormButton extends ConsumerWidget {
-  const CustomFormButton({super.key, required this.formButtonType});
+  const CustomFormButton({
+    super.key,
+    required this.formButtonType,
+    required this.formKey,
+  });
   final FormButtonType formButtonType;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,27 +28,29 @@ class CustomFormButton extends ConsumerWidget {
           final authService = AuthService();
 
           //TODO validate values at FormField
-          if (formButtonType == FormButtonType.login) {
-            final authResult = await authService.signInWithEmail(
-              context,
-              mailController.text,
-              passController.text,
-            );
+          if (formKey.currentState!.validate()) {
+            if (formButtonType == FormButtonType.login) {
+              final authResult = await authService.signInWithEmail(
+                context,
+                mailController.text,
+                passController.text,
+              );
 
-            if (authResult.authError != null) {
-              log.info(authResult.authError.toString());
-            }
-          } else if (formButtonType == FormButtonType.register) {
-            final authResult = await authService.registerWithEmail(
-              context,
-              mailController.text,
-              passController.text,
-              //TODO UPDATE HERE CANIM
-              "DUMMY NAME",
-            );
+              if (authResult.authError != null) {
+                log.info(authResult.authError.toString());
+              }
+            } else if (formButtonType == FormButtonType.register) {
+              final authResult = await authService.registerWithEmail(
+                context,
+                mailController.text,
+                passController.text,
+                //TODO UPDATE HERE CANIM
+                "DUMMY NAME",
+              );
 
-            if (authResult.authError != null) {
-              log.info(authResult.authError.toString());
+              if (authResult.authError != null) {
+                log.info(authResult.authError.toString());
+              }
             }
           }
         },

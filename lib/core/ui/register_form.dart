@@ -36,7 +36,10 @@ class RegisterForm extends ConsumerWidget {
               controller: passController,
             ),
             const Spacer(),
-            const CustomFormButton(formButtonType: FormButtonType.login),
+            CustomFormButton(
+              formKey: _formKey,
+              formButtonType: FormButtonType.register,
+            ),
           ],
         ),
       ),
