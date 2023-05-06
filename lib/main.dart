@@ -56,7 +56,7 @@ void main() async {
   Hive
     ..registerAdapter(ExerciseAdapter())
     ..registerAdapter(ExerciseTypeAdapter());
-  ExercisesManager.openExercisesBoxes();
+  await ExercisesManager.openExercisesBoxes();
   runApp(
     const ProviderScope(
       child: MyApp(),

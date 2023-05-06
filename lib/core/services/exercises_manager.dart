@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class ExercisesManager {
-  static void openExercisesBoxes() async {
+  static Future<void> openExercisesBoxes() async {
     for (var i = 0; i < 7; i++) {
       await Hive.openBox<Exercise>('{$i}exercisesBox');
     }
