@@ -31,6 +31,10 @@ class AuthService {
 
       userCredential.user?.updateDisplayName(name);
 
+      if (context.mounted) {
+        context.goNamed(Routes.home.name);
+      }
+
       return AuthResult(userCredential: userCredential);
     } on FirebaseAuthException catch (e) {
       return AuthResult(
