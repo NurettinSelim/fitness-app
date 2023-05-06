@@ -20,6 +20,7 @@ class CustomFormButton extends ConsumerWidget {
     final log = Logger("CustomFormButton:${formButtonType.name}");
     final mailController = ref.watch(mailFieldProvider);
     final passController = ref.watch(passwordFieldProvider);
+    final nameController = ref.watch(nameFieldProvider);
 
     return SizedBox(
       width: double.infinity,
@@ -44,8 +45,7 @@ class CustomFormButton extends ConsumerWidget {
                 context,
                 mailController.text,
                 passController.text,
-                //TODO UPDATE HERE CANIM
-                "DUMMY NAME",
+                nameController.text,
               );
 
               if (authResult.authError != null) {
@@ -67,7 +67,7 @@ class CustomFormButton extends ConsumerWidget {
         child: Text(
           formButtonType == FormButtonType.login ? "Sign In" : "Register",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
       ),
     );
