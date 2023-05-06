@@ -28,7 +28,6 @@ class CustomFormButton extends ConsumerWidget {
         onPressed: () async {
           final authService = AuthService();
 
-          //TODO validate values at FormField
           if (formKey.currentState!.validate()) {
             if (formButtonType == FormButtonType.login) {
               final authResult = await authService.signInWithEmail(
