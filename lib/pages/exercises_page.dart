@@ -52,6 +52,28 @@ class ExercisesPage extends StatelessWidget {
               exercisesManager.getExercisesListenableByDay(weekdayNum),
           builder: (context, snapshot, child) {
             final exercises = exercisesManager.getExercisesByDay(weekdayNum);
+            if (exercises.isEmpty) {
+              return Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 24),
+                    Text(
+                      "You don't have any exercises for this day :(",
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 24),
+                    Text(
+                      "Click \"+ Add Training\" button to add exercises",
+                      style: Theme.of(context).textTheme.titleMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            }
             return ListView.separated(
               itemBuilder: (context, index) {
                 return ListTile(
