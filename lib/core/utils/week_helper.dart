@@ -7,10 +7,6 @@ class WeekHelper {
     return weekdayNames.indexOf(weekdayName);
   }
 
-  static String longToShortName(String longName) {
-    return longToShortMap[longName] ?? "error";
-  }
-
   static List<String> weekdayNames = [
     "monday",
     "tuesday",
@@ -20,15 +16,6 @@ class WeekHelper {
     "saturday",
     "sunday",
   ];
-  static Map<String, String> longToShortMap = {
-    "monday": "mon",
-    "tuesday": "tue",
-    "wednesday": "wed",
-    "thursday": "thu",
-    "friday": "fri",
-    "saturday": "sat",
-    "sunday": "sun",
-  };
 }
 
 extension StringExtension on String {
